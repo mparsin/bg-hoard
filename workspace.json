@@ -349,6 +349,124 @@
           }
         }
       }
+    },
+    "vide-games": {
+      "projectType": "application",
+      "root": "apps/vide-games",
+      "sourceRoot": "apps/vide-games/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/vide-games",
+            "index": "apps/vide-games/src/index.html",
+            "main": "apps/vide-games/src/main.ts",
+            "polyfills": "apps/vide-games/src/polyfills.ts",
+            "tsConfig": "apps/vide-games/tsconfig.app.json",
+            "assets": [
+              "apps/vide-games/src/favicon.ico",
+              "apps/vide-games/src/assets"
+            ],
+            "styles": ["apps/vide-games/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/vide-games/src/environments/environment.ts",
+                  "with": "apps/vide-games/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "vide-games:build:production"
+            },
+            "development": {
+              "browserTarget": "vide-games:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "vide-games:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/vide-games/src/**/*.ts",
+              "apps/vide-games/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/vide-games"],
+          "options": {
+            "jestConfig": "apps/vide-games/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "vide-games-e2e": {
+      "root": "apps/vide-games-e2e",
+      "sourceRoot": "apps/vide-games-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/vide-games-e2e/cypress.json",
+            "devServerTarget": "vide-games:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vide-games:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/vide-games-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {

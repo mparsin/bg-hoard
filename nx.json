@@ -61,6 +61,13 @@
     },
     "util-interface": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "vide-games": {
+      "tags": ["scope:apps/vide-games"]
+    },
+    "vide-games-e2e": {
+      "tags": [],
+      "implicitDependencies": ["vide-games"]
     }
   }
 }

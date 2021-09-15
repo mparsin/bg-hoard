@@ -20,16 +20,20 @@
         "type": "list",
         "items": [
           {
-            "value": "store",
-            "label": "store"
-          },
-          {
             "value": "api",
             "label": "api"
           },
           {
+            "value": "store",
+            "label": "store"
+          },
+          {
             "value": "shared",
             "label": "shared"
+          },
+          {
+            "value": "apps/vide-games",
+            "label": "apps/vide-games"
           }
         ]
       }
